@@ -25,3 +25,10 @@ describe('toLower', () => {
     expect(word.toLower()).to.equal('lowercase');
   });
 });
+
+describe('ucFirst', () => {
+  it('returns the first character in Uppercase', () => {
+    const word = 'first';
+    expect(word.ucFirst()).to.equal('First');
+  });
+});

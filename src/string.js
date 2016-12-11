@@ -25,9 +25,20 @@ const extendsStringClass = {
    * Returns string with all characters in lower case.
    * @returns {String}
    */
-  toLower(){
+  toLower() {
     return this.replace(/[A-Z]/g, (match) => {
       return String.fromCharCode(match.charCodeAt(0) + 32);
+    });
+  },
+
+  /**
+   * ucFirst()
+   * Returns the first character in upperCase.
+   * @returns {String}
+   */
+  ucFirst() {
+    return this.replace(/^[a-z]/, (match) => {
+      return String.fromCharCode(match.charCodeAt(0) - 32);
     });
   }
 

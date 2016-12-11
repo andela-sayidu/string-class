@@ -50,3 +50,10 @@ describe('words', () => {
   });
 });
 
+describe('wordCount', () => {
+  it('returns the number of words in the string', () => {
+    const words= 'first of all';
+    expect(words.wordCount()).to.equal(3);
+  });
+});
+

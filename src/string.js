@@ -58,8 +58,16 @@ const extendsStringClass = {
    */
   words() {
     return this.match(/\w+/g);
-  }
+  },
 
+  /**
+   * wordCount()
+   * Returns the number of words in the string
+   * @returns {Number}
+   */
+   wordCount(){
+     return this.words().length;
+   }
 };
 
 Object.assign(String.prototype, extendsStringClass);

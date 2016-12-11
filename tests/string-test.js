@@ -41,3 +41,12 @@ describe('isQuestion', () => {
     expect(question.isQuestion()).to.be.true;
   });
 });
+
+
+describe('words', () => {
+  it('returns a list of the words in the string', () => {
+    const wordArray = 'first of all';
+    expect(wordArray.words()).to.deep.equal([ 'first', 'of', 'all' ]);
+  });
+});
+

@@ -49,7 +49,17 @@ const extendsStringClass = {
    */
   isQuestion() {
     return /[?]$/g.test(this);
+  },
+
+  /**
+   * words()
+   * Returns a list of the words in the string as an Array
+   * @returns {Array}
+   */
+  words() {
+    return this.match(/\w+/g);
   }
+
 };
 
 Object.assign(String.prototype, extendsStringClass);

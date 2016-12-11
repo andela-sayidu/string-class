@@ -40,8 +40,16 @@ const extendsStringClass = {
     return this.replace(/^[a-z]/, (match) => {
       return String.fromCharCode(match.charCodeAt(0) - 32);
     });
-  }
+  },
 
+  /**
+   * isQuestion()
+   * Returns true if the string is a question.
+   * @returns {Boolean}
+   */
+  isQuestion() {
+    return /[?]$/g.test(this);
+  }
 };
 
 Object.assign(String.prototype, extendsStringClass);

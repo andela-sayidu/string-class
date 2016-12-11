@@ -32,3 +32,12 @@ describe('ucFirst', () => {
     expect(word.ucFirst()).to.equal('First');
   });
 });
+
+describe('isQuestion', () => {
+  it('verifies if a string is a question', () => {
+    const word = 'first';
+    const question = 'My name is what?';
+    expect(word.isQuestion()).to.not.be.true;
+    expect(question.isQuestion()).to.be.true;
+  });
+});

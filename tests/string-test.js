@@ -13,8 +13,15 @@ describe('hasVowels', () => {
 });
 
 describe('toUpper', () => {
-  it('returns true if the string is returned in Uppercase', () => {
+  it('returns a string is returned in Uppercase', () => {
     const word = 'uppercase';
-    expect(word.toUpperCase()).to.equal('UPPERCASE');
+    expect(word.toUpper()).to.equal('UPPERCASE');
+  });
+});
+
+describe('toLower', () => {
+  it('returns a string is returned in lowercase', () => {
+    const word = 'LOWERCASE';
+    expect(word.toLower()).to.equal('lowercase');
   });
 });

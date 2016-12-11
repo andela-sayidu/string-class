@@ -18,6 +18,17 @@ const extendsStringClass = {
     return this.replace(/[a-z]/g, (match) => {
       return String.fromCharCode(match.charCodeAt(0) - 32);
     });
+  },
+
+  /**
+   * toLower()
+   * Returns string with all characters in lower case.
+   * @returns {String}
+   */
+  toLower(){
+    return this.replace(/[A-Z]/g, (match) => {
+      return String.fromCharCode(match.charCodeAt(0) + 32);
+    });
   }
 
 };

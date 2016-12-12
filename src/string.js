@@ -65,9 +65,29 @@ const extendsStringClass = {
    * Returns the number of words in the string
    * @returns {Number}
    */
-   wordCount(){
-     return this.words().length;
-   }
+  wordCount() {
+    return this.words().length;
+  },
+
+  /**
+   * toCurrency()
+   * Returns a currency representation of the String
+   * @returns {String}
+   */
+  toCurrency() {
+    return this.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  },
+
+  /**
+   * fromCurrency()
+   * Returns a number representation of the Currency
+   * @returns {Number}
+   */
+  fromCurrency() {
+    return parseInt(this.replace(/(\d)[,](?=(\d{3})+(?!\d))/g, '$1'));
+  }
+
+
 };
 
 Object.assign(String.prototype, extendsStringClass);

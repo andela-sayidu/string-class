@@ -57,3 +57,19 @@ describe('wordCount', () => {
   });
 });
 
+describe('toCurrency', () => {
+  it('returns a currency representation of the String', () => {
+      const curr = '1000000';
+     expect(curr.toCurrency()).to.equal('1,000,000');
+  });
+});
+
+
+describe('fromCurrency', () => {
+  it('Returns a number representation of the Currency', () => {
+      const curr = '1,000,000';
+      console.log(curr.fromCurrency());
+      expect(curr.fromCurrency()).to.equal(1000000);
+  });
+});
+

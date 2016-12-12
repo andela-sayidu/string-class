@@ -107,3 +107,13 @@ describe('numberWords', () => {
     expect(wordsInNum1.numberWords()).to.equal('one zero zero');
   });
 });
+
+
+describe('isDigit', () => {
+  it('Returns true if the string is a digit', () => {
+    const oneDigit = '2';
+    const mulDigits = '150';
+    expect(oneDigit.isDigit()).to.equal(true);
+    expect(mulDigits.isDigit()).to.equal(false);
+  });
+});

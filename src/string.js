@@ -173,6 +173,15 @@ const extendsStringClass = {
    * Returns the numbers in words
    * @returns {Boolean}
    */
+  isDigit() {
+    checkNum = this.match(/\d/g);
+    if (checkNum.length === 1) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
 };
 
 Object.assign(String.prototype, extendsStringClass);

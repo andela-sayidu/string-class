@@ -97,3 +97,13 @@ describe('getMiddle', () => {
     expect(read2.getMiddle()).to.equal('a');
   });
 });
+
+
+describe('numberWords', () => {
+  it('Returns the numbers in words', () => {
+    const wordsInNum = '325';
+    const wordsInNum1 = '100';
+    expect(wordsInNum.numberWords()).to.equal('three two five');
+    expect(wordsInNum1.numberWords()).to.equal('one zero zero');
+  });
+});

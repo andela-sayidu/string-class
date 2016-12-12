@@ -137,6 +137,42 @@ const extendsStringClass = {
     }
   },
 
+
+  /**
+   * numberWords()
+   * Returns the numbers in words
+   * @returns {String}
+   */
+  numberWords() {
+    const numDict = {
+      0: 'zero ',
+      1: 'one ',
+      2: 'two ',
+      3: 'three ',
+      4: 'four',
+      5: 'five',
+      6: 'six',
+      7: 'seven',
+      8: 'eight',
+      9: 'nine',
+      10: 'ten'
+    }
+
+    let numInWords = '';
+    let numbers = this.toString().split('');
+    numbers = numbers.map(Number);
+    for (let value of numbers) {
+      numInWords += numDict[value];
+    }
+    numInWords = numInWords.trim();
+    return numInWords;
+  },
+
+  /**
+   * isDigit()
+   * Returns the numbers in words
+   * @returns {Boolean}
+   */
 };
 
 Object.assign(String.prototype, extendsStringClass);

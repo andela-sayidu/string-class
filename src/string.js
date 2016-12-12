@@ -182,6 +182,14 @@ const extendsStringClass = {
     }
   },
 
+  /**
+   * isDigit()
+   * Returns true if a string contains double characters
+   * @returns {Boolean}
+   */
+  doubleCheck() {
+    return (/(.)\1/g).test(this);
+  }
 };
 
 Object.assign(String.prototype, extendsStringClass);

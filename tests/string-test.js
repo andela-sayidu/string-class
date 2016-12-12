@@ -46,30 +46,44 @@ describe('isQuestion', () => {
 describe('words', () => {
   it('returns a list of the words in the string', () => {
     const wordArray = 'first of all';
-    expect(wordArray.words()).to.deep.equal([ 'first', 'of', 'all' ]);
+    expect(wordArray.words()).to.deep.equal(['first', 'of', 'all']);
   });
 });
 
 describe('wordCount', () => {
   it('returns the number of words in the string', () => {
-    const words= 'first of all';
+    const words = 'first of all';
     expect(words.wordCount()).to.equal(3);
   });
 });
 
 describe('toCurrency', () => {
   it('returns a currency representation of the String', () => {
-      const curr = '1000000';
-     expect(curr.toCurrency()).to.equal('1,000,000');
+    const curr = '1000000';
+    expect(curr.toCurrency()).to.equal('1,000,000');
   });
 });
 
 
 describe('fromCurrency', () => {
   it('Returns a number representation of the Currency', () => {
-      const curr = '1,000,000';
-      console.log(curr.fromCurrency());
-      expect(curr.fromCurrency()).to.equal(1000000);
+    const curr = '1,000,000';
+    expect(curr.fromCurrency()).to.equal(1000000);
   });
 });
 
+describe('inverseCase', () => {
+  it('Returns each letter in the string as an inverse of its current case', () => {
+    const inverse = 'tEST tHE iNVERSE cASE fUNCTION';
+    expect(inverse.inverseCase()).to.equal('Test The Inverse Case Function');
+  });
+});
+
+describe('alternatingCase', () => {
+  it('Returns the letters in alternating cases.', () => {
+    const alternateChars = 'Alternating';
+    const alternateChars1 = 'inverse DNA';
+    expect(alternateChars.alternatingCase()).to.equal('aLtErNaTiNg');
+    expect(alternateChars1.alternatingCase()).to.equal('iNvErSe DnA');
+  });
+});

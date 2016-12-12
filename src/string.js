@@ -85,6 +85,39 @@ const extendsStringClass = {
    */
   fromCurrency() {
     return parseInt(this.replace(/(\d)[,](?=(\d{3})+(?!\d))/g, '$1'));
+  },
+
+  /**
+   * inverseCase()
+   * Returns each letter in the string as an inverse of its current case
+   * @returns {String}
+   */
+  inverseCase() {
+    return this.replace(/\w/g, (match) => {
+      if ((/[a-z]/g).test(match)) {
+        return match.toUpper();
+      } else {
+        return match.toLower();
+      }
+    });
+  },
+
+  /**
+   * alternatingCase()
+   * returns the letters in alternating cases.
+   * @returns {String}
+   */
+  alternatingCase() {
+    let count = 0;
+    return this.replace(/\w/g, (match) => {
+      if (count % 2 != 0) {
+        count += 1;
+        return match.toUpper();
+      } else {
+        count += 1;
+        return match.toLower();
+      }
+    });
   }
 
 

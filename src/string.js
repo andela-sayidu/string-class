@@ -118,8 +118,24 @@ const extendsStringClass = {
         return match.toLower();
       }
     });
-  }
+  },
 
+  /**
+   * getMiddle()
+   * Returns the character(s) in the middle of the string
+   * @returns {String}
+   */
+  getMiddle() {
+    const splitString = this.split('');
+    const wordLength = splitString.length;
+    const middle = Math.floor(wordLength / 2);
+
+    if (wordLength % 2 == 0) {
+      return splitString[middle - 1] + splitString[middle]
+    } else {
+      return splitString[middle];
+    }
+  },
 
 };
 

@@ -87,3 +87,13 @@ describe('alternatingCase', () => {
     expect(alternateChars1.alternatingCase()).to.equal('iNvErSe DnA');
   });
 });
+
+
+describe('getMiddle', () => {
+  it(' Returns the character(s) in the middle of the string', () => {
+    const read1 = 'middle';
+    const read2 = 'reads';
+    expect(read1.getMiddle()).to.equal('dd');
+    expect(read2.getMiddle()).to.equal('a');
+  });
+});

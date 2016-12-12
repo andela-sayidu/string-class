@@ -140,7 +140,7 @@ const extendsStringClass = {
 
   /**
    * numberWords()
-   * Returns the numbers in words
+   * Returns numbers in words
    * @returns {String}
    */
   numberWords() {

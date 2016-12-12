@@ -100,7 +100,7 @@ describe('getMiddle', () => {
 
 
 describe('numberWords', () => {
-  it('Returns the numbers in words', () => {
+  it('Returns numbers in words', () => {
     const wordsInNum = '325';
     const wordsInNum1 = '100';
     expect(wordsInNum.numberWords()).to.equal('three two five');

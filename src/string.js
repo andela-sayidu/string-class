@@ -15,9 +15,8 @@ const extendsStringClass = {
    * @returns {String}
    */
   toUpper() {
-    return this.replace(/[a-z]/g, (match) => {
-      return String.fromCharCode(match.charCodeAt(0) - 32);
-    });
+    return this.replace(/[a-z]/g, match =>
+      String.fromCharCode(match.charCodeAt(0) - 32));
   },
 
   /**
@@ -26,9 +25,8 @@ const extendsStringClass = {
    * @returns {String}
    */
   toLower() {
-    return this.replace(/[A-Z]/g, (match) => {
-      return String.fromCharCode(match.charCodeAt(0) + 32);
-    });
+    return this.replace(/[A-Z]/g, match =>
+      String.fromCharCode(match.charCodeAt(0) + 32));
   },
 
   /**
@@ -37,9 +35,8 @@ const extendsStringClass = {
    * @returns {String}
    */
   ucFirst() {
-    return this.replace(/^[a-z]/, (match) => {
-      return String.fromCharCode(match.charCodeAt(0) - 32);
-    });
+    return this.replace(/^[a-z]/, match =>
+      String.fromCharCode(match.charCodeAt(0) - 32));
   },
 
   /**
@@ -48,7 +45,7 @@ const extendsStringClass = {
    * @returns {Boolean}
    */
   isQuestion() {
-    return /[?]$/g.test(this);
+    return /\?$/g.test(this);
   },
 
   /**
@@ -57,7 +54,7 @@ const extendsStringClass = {
    * @returns {Array}
    */
   words() {
-    return this.match(/\w+/g);
+    return this.match(/\b[a-zA-Z?.!]+(?!\d)\b/g);
   },
 
   /**
@@ -84,7 +81,7 @@ const extendsStringClass = {
    * @returns {Number}
    */
   fromCurrency() {
-    return parseInt(this.replace(/(\d)[,](?=(\d{3})+(?!\d))/g, '$1'));
+    return Number(this.replace(/,|\.00+\d?/g, ''));
   },
 
   /**
@@ -93,12 +90,11 @@ const extendsStringClass = {
    * @returns {String}
    */
   inverseCase() {
-    return this.replace(/\w/g, (match) => {
+    return this.replace(/[a-z]/gi, (match) => {
       if ((/[a-z]/g).test(match)) {
         return match.toUpper();
-      } else {
-        return match.toLower();
       }
+      return match.toLower();
     });
   },
 
@@ -108,15 +104,11 @@ const extendsStringClass = {
    * @returns {String}
    */
   alternatingCase() {
-    let count = 0;
-    return this.replace(/\w/g, (match) => {
-      if (count % 2 != 0) {
-        count += 1;
+    return this.replace(/[a-z]/gi, (match, count) => {
+      if (count % 2 !== 0) {
         return match.toUpper();
-      } else {
-        count += 1;
-        return match.toLower();
       }
+      return match.toLower();
     });
   },
 
@@ -130,11 +122,10 @@ const extendsStringClass = {
     const wordLength = splitString.length;
     const middle = Math.floor(wordLength / 2);
 
-    if (wordLength % 2 == 0) {
-      return splitString[middle - 1] + splitString[middle]
-    } else {
-      return splitString[middle];
+    if (wordLength % 2 === 0) {
+      return splitString[middle - 1] + splitString[middle];
     }
+    return splitString[middle];
   },
 
 
@@ -149,23 +140,20 @@ const extendsStringClass = {
       1: 'one ',
       2: 'two ',
       3: 'three ',
-      4: 'four',
-      5: 'five',
-      6: 'six',
-      7: 'seven',
-      8: 'eight',
-      9: 'nine',
-      10: 'ten'
-    }
+      4: 'four ',
+      5: 'five ',
+      6: 'six ',
+      7: 'seven ',
+      8: 'eight ',
+      9: 'nine ',
+    };
 
     let numInWords = '';
-    let numbers = this.toString().split('');
-    numbers = numbers.map(Number);
-    for (let value of numbers) {
-      numInWords += numDict[value];
-    }
-    numInWords = numInWords.trim();
-    return numInWords;
+    const numbers = this.split('');
+    numbers.forEach((elem) => {
+      numInWords += numDict[elem];
+    });
+    return numInWords.trim();
   },
 
   /**
@@ -174,22 +162,17 @@ const extendsStringClass = {
    * @returns {Boolean}
    */
   isDigit() {
-    checkNum = this.match(/\d/g);
-    if (checkNum.length === 1) {
-      return true;
-    } else {
-      return false;
-    }
+    return /^\d{1}$/.test(this);
   },
 
   /**
-   * isDigit()
+   * doubleCheck()
    * Returns true if a string contains double characters
    * @returns {Boolean}
    */
   doubleCheck() {
     return (/(.)\1/g).test(this);
-  }
+  },
 };
 
 Object.assign(String.prototype, extendsStringClass);

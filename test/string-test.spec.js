@@ -19,7 +19,8 @@ describe('stringClassExtended', () => {
   describe('toUpper', () => {
     it('returns a string in Uppercase', () => {
       expect('uppercase'.toUpperCase()).to.equal('UPPERCASE');
-      expect('edit Casing'.toUpper()).to.equal('EDIT CASING');
+      expect('Edit Casing'.toUpper()).to.equal('EDIT CASING');
+      expect('STRING'.toUpper()).to.equal('STRING');
     });
 
     it('should be able to handle string with symbols/numbers', () => {
@@ -31,7 +32,8 @@ describe('stringClassExtended', () => {
   describe('toLower', () => {
     it('returns a string in lowercase', () => {
       expect('LOWERCASE'.toLower()).to.equal('lowercase');
-      expect('CASING'.toLower()).to.equal('casing');
+      expect('Casing'.toLower()).to.equal('casing');
+      expect('string'.toLower()).to.equal('string');
     });
 
     it('should be able to handle string with symbols/numbers', () => {
@@ -86,14 +88,16 @@ describe('stringClassExtended', () => {
   describe('toCurrency', () => {
     it('returns a currency representation of the String', () => {
       expect('1000000'.toCurrency()).to.equal('1,000,000');
-      expect('1000'.toCurrency()).to.equal('1,000');
+      expect('1000.00'.toCurrency()).to.equal('1,000.00');
+      expect('11111.11'.toCurrency()).to.equal('11,111.11');
     });
   });
 
   describe('fromCurrency', () => {
     it('returns a number representation of the Currency', () => {
       expect('1,000,000'.fromCurrency()).to.equal(1000000);
-      expect('1,000.00'.fromCurrency()).to.equal(1000);
+      expect('1,000.001'.fromCurrency()).to.equal(1000.00);
+      expect('11,111.11'.fromCurrency()).to.equal(11111.11);
     });
   });
 
@@ -101,6 +105,7 @@ describe('stringClassExtended', () => {
     it('returns the inverse of the current lettercase', () => {
       const inverse = 'tEST tHE iNVErSE cASE fUNCTION';
       expect(inverse.inverseCase()).to.equal('Test The InveRse Case Function');
+      expect('Mr. Ben'.inverseCase()).to.equal('mR. bEN');
     });
   });
 
@@ -108,6 +113,7 @@ describe('stringClassExtended', () => {
     it('returns the letters in alternating cases.', () => {
       expect('Alternating'.alternatingCase()).to.equal('aLtErNaTiNg');
       expect('inverse DNA'.alternatingCase()).to.equal('iNvErSe dNa');
+      expect('Onomatopoeia'.alternatingCase()).to.equal('oNoMaToPoEiA');
     });
   });
 
@@ -116,6 +122,8 @@ describe('stringClassExtended', () => {
     it('returns the character(s) in the middle of the string', () => {
       expect('middle'.getMiddle()).to.equal('dd');
       expect('reads'.getMiddle()).to.equal('a');
+      expect('read'.getMiddle()).to.equal('ea');
+      expect(' '.getMiddle()).to.equal(' ');
     });
   });
 
@@ -130,8 +138,8 @@ describe('stringClassExtended', () => {
 
   describe('isDigit', () => {
     it('returns true if the string is a digit', () => {
-      expect('2'.isDigit()).to.equal(true);
-      expect('150'.isDigit()).to.equal(false);
+      expect('3'.isDigit()).to.equal(true);
+      expect('34'.isDigit()).to.equal(false);
     });
     it('returns false if the string is a digit contains alphabet', () => {
       expect('2a'.isDigit()).to.equal(false);
@@ -143,6 +151,8 @@ describe('stringClassExtended', () => {
     it('returns true if a string contains double characters', () => {
       expect('testforToo'.doubleCheck()).to.equal(true);
       expect('  '.doubleCheck()).to.equal(true);
+      expect('aa'.doubleCheck()).to.equal(true);
+      expect('!!'.doubleCheck()).to.equal(true);
     });
   });
 });

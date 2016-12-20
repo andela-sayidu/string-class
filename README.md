@@ -14,8 +14,8 @@ Clone or download the zip-file for this repository
 
 ## Contributing
 
-* Fork this repositry to your account.
-* Clone your repositry: git clone git@github.com:your-username/string-class.git
+* Fork this repository to your account.
+* Clone your repository: git clone git@github.com:your-username/string-class.git
 * Create your feature branch: git checkout -b new-feature
 * Commit your changes: git commit -m "did something"
 * Push to the remote branch: git push origin new-feature

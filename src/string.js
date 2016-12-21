@@ -81,7 +81,7 @@ const extendsStringClass = {
    * @returns {Number}
    */
   fromCurrency() {
-    return Number(this.replace(/,|\.00+\d?/g, ''));
+    return Number(this.replace(/,|\.[\d]+/g, ''));
   },
 
   /**

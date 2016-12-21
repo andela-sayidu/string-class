@@ -7,21 +7,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="./src/string.js"></script>
+  <script src="./script.js"></script>
   <link rel="stylesheet" type="text/css" href="./style.css">
-  </script>
 </head>
 
 <body>
   <div class="container">
-    <h2>String Class</h2>
-    <p>Extension of the String Class</p>
-    <div class="row">
-      <div class="col-sm-4">
+    <div class="formcontainer">
+      <h2>String Class</h2>
+      <p>Extension of the String Class</p>
+      <div class="row">
+        <h3 id="error"> </h3>
+      </div>
+      <div class="row">
         <div class="form-group">
-          <label for="usr">Input Test String:</label>
+          <label for="usr">Insert a String</label>
           <input type="text" class="form-control" id="testString">
         </div>
-        <label for="sel1">Select a Function</label>
+        <label for="selection">Select a Function</label>
         <select class="form-control" id="selectMethod">
             <option value="hasVowels">hasVowels</option>
             <option value="toUpper">toUpper</option>
@@ -38,81 +41,22 @@
             <option value="numberWords">numberWords</option>
             <option value="isDigit">isDigit</option>
             <option value="doubleCheck">doubleCheck</option>
-                  </select>
-      </div>
-    </div> <br>
-    <div class="row">
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-default" onclick="applyFunction()">Apply Function</button>
-      </div>
-      <div class="col-sm-4">
+         </select>
+      </div> <br>
+      <div class="row">
+        <button type="button" class="btn btn-default" onclick="applyFunction()">GO</button>
+        <h4 id="methodDetails"> </h4>
         <h4 id="result"></h4>
       </div>
     </div>
+    <br/>
+    <div class="stringDetails">
+     <div class="row">
+        <h2> About the String Class </h2>
+        <h4>Extends the "String" class in javascript with prototype oriented programming. </h4>
+     </div>
+    </div>
   </div>
-  <script>
-    function applyFunction() {
-      let testString = document.getElementById("testString").value;
-      let selectMethod = document.getElementById("selectMethod").value;
-      let result;
-
-      if (testString === '' || testString === undefined) {
-        result = '';
-        alert('Please enter a String');
-      } else {
-        switch (selectMethod) {
-          case "hasVowels":
-            result = testString.hasVowels();
-            break;
-          case "toUpper":
-            result = testString.toUpper();
-            break;
-          case "toLower":
-            result = testString.toLower();
-            break;
-          case "ucFirst":
-            result = testString.ucFirst();
-            break;
-          case "isQuestion":
-            result = testString.isQuestion();
-            break;
-          case "words":
-            result = testString.words();
-            break;
-          case "wordCount":
-            result = testString.wordCount();
-            break;
-          case "toCurrency":
-            result = testString.toCurrency();
-            break;
-          case "fromCurrency":
-            result = testString.fromCurrency();
-            break;
-          case "inverseCase":
-            result = testString.inverseCase();
-            break;
-          case "alternatingCase":
-            result = testString.alternatingCase();
-            break;
-          case "getMiddle":
-            result = testString.getMiddle();
-            break;
-          case "numberWords":
-            result = testString.numberWords();
-            break;
-          case "isDigit":
-            result = testString.isDigit();
-            break;
-          case "doubleCheck":
-            result = testString.doubleCheck();
-            break;
-          default:
-            result = "Choose a function";
-        };
-      }
-      return document.getElementById("result").innerHTML = "Result: " + result;
-    };
-  </script>
 </body>
 
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./src/string.js"></script>
+  <script src="./script.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="formcontainer">
+      <h2>String Class</h2>
+      <p>Extension of the String Class</p>
+      <div class="row">
+        <h3 id="error"> </h3>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="usr">Insert a String</label>
+          <input type="text" class="form-control" id="testString">
+        </div>
+        <label for="selection">Select a Function</label>
+        <select class="form-control" id="selectMethod">
+            <option value="hasVowels">hasVowels</option>
+            <option value="toUpper">toUpper</option>
+            <option value="toLower">toLower</option>
+            <option value="ucFirst">ucFirst</option>
+            <option value="isQuestion">isQuestion</option>
+            <option value="words">words</option>
+            <option value="wordCount">wordCount</option>
+            <option value="toCurrency">toCurrency</option>
+            <option value="fromCurrency">fromCurrency</option>
+            <option value="inverseCase">inverseCase</option>
+            <option value="alternatingCase">alternatingCase</option>
+            <option value="getMiddle">getMiddle</option>
+            <option value="numberWords">numberWords</option>
+            <option value="isDigit">isDigit</option>
+            <option value="doubleCheck">doubleCheck</option>
+         </select>
+      </div> <br>
+      <div class="row">
+        <button type="button" class="btn btn-default" onclick="applyFunction()">GO</button>
+        <h4 id="methodDetails"> </h4>
+        <h4 id="result"></h4>
+      </div>
+    </div>
+    <br/>
+    <div class="stringDetails">
+     <div class="row">
+        <h2> About the String Class </h2>
+        <h4>Extends the "String" class in javascript with prototype oriented programming. </h4>
+     </div>
+    </div>
+  </div>
+</body>
+
+</html>

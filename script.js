@@ -1,10 +1,8 @@
     /* eslint-disable */
     function applyFunction() {
-      let testString = document.getElementById("testString").value;
-      let selectMethod = document.getElementById("selectMethod").value;
-      let error = '';
-      let result;
-      let methodDetails = '';
+      const testString = document.getElementById("testString").value;
+      const selectMethod = document.getElementById("selectMethod").value;
+      let error, result, methodDetails = '';
 
       if (testString === '' || testString === undefined) {
         result = '';
